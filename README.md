@@ -1,7 +1,7 @@
 # Monitoring_docker_dashboard_grafana
 Dashboard personalizada do Grafana para monitoramento de containers Docker e infraestrutura Linux, utilizando o Zabbix como datasource.
 
-![Docker](dashboard containers.png)
+![Docker](dashboardcontainers.png)
 
 A dashboard foi projetada com foco em clareza visual, status em tempo real e histórico confiável, permitindo identificar rapidamente containers online, parados ou pausados, além de acompanhar métricas essenciais de desempenho.
 
