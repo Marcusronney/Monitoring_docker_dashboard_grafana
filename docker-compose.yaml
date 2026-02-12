@@ -1,0 +1,48 @@
+services:
+  web_ok:
+    image: nginx:alpine
+    container_name: dash_web_ok
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+
+  api_ok:
+    image: hashicorp/http-echo:1.0
+    container_name: dash_api_ok
+    command: ["-listen=:8888", "-text=OK - dash_api_ok"]
+    ports:
+      - "8888:8888"
+    restart: unless-stopped
+
+  redis_ok:
+    image: redis:alpine
+    container_name: dash_redis_ok
+    restart: unless-stopped
+
+  cpu_stress:
+    image: polinux/stress
+    container_name: dash_cpu_stress
+    command: ["stress", "--cpu", "2"]
+    restart: unless-stopped
+
+  mem_stress:
+    image: polinux/stress
+    container_name: dash_mem_stress
+    command: ["stress", "--vm", "1", "--vm-bytes", "512M", "--vm-hang", "0"]
+    restart: unless-stopped
+
+  flappy:
+    image: alpine:3.20
+    container_name: dash_flappy
+    command: >
+      sh -c "echo 'up for 20s'; sleep 20; echo 'going down'; exit 1"
+    restart: always
+
+  always_off:
+    image: alpine:3.20
+    container_name: dash_always_off
+    command: ["sh", "-c", "exit 1"]
+    restart: "no"
+
+volumes:
+  dash_data:

@@ -28,3 +28,15 @@ Docker / Docker Compose
 - validação visual de ambientes Docker
 
 Grafana Lab: https://grafana.com/grafana/dashboards/24854
+Plugin Canvas: https://grafana.com/grafana/plugins/canvas/
+
+![Docker](Dashboard.png)
+
+### Docker Compose
+
+Use o Docker Compose para subir containers para visualizar a dashboard.
+
+docker-compose.yaml
+````
+docker compose up -d
+````
